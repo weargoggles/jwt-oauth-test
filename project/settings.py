@@ -23,6 +23,7 @@ env = environ.Env(
     JWT_PRIVATE_KEY=str,
     SECRET_KEY=str,
     ADMINS=list,
+    SERVER_EMAIL=str,
 )
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -115,4 +116,5 @@ JWT_PRIVATE_KEY = Crypto.PublicKey.RSA.importKey(env('JWT_PRIVATE_KEY'))
 EMAIL_HOST = env('POSTMARK_SMTP_SERVER')
 EMAIL_HOST_USER = env('POSTMARK_API_TOKEN')
 EMAIL_HOST_PASSWORD = env('POSTMARK_API_TOKEN')
+SERVER_EMAIL = env('SERVER_EMAIL')
 EMAIL_USE_TLS = True
