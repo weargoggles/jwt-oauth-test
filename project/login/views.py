@@ -40,8 +40,8 @@ def login(request):
 def login_callback(request):
     assert request.method == 'GET'
     code, state = request.GET['code'], request.GET['state']
-    assert state == request.session['state']
-    del request.session['state']
+    assert state == request.session['github']['oauth_state']
+    del request.session['github']['oauth_state']
     token_response = requests.post(GITHUB_TOKEN_URL, data={
         'client_id': settings.GITHUB_CLIENT_ID,
         'client_secret': settings.GITHUB_CLIENT_SECRET,
