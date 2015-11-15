@@ -22,6 +22,7 @@ env = environ.Env(
     JWT_PUBLIC_KEY=str,
     JWT_PRIVATE_KEY=str,
     SECRET_KEY=str,
+    ADMINS=list,
 )
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,6 +39,7 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
+ADMINS = map(lambda x: (x, x), env('ADMINS'))
 
 # Application definition
 
