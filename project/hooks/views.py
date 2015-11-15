@@ -12,7 +12,7 @@ crypto_backend = cryptography.hazmat.backends.default_backend()
 
 
 def verify_signature(request, request_body):
-    hmac_hmac = hmac.HMAC(settings.GITHUB_WEBHOOK_SECRET, SHA1, crypto_backend)
+    hmac_hmac = hmac.HMAC(settings.GITHUB_WEBHOOK_SECRET, SHA1(), crypto_backend)
     hmac_hmac.update(request_body)
     signature = b'sha1=' + binascii.hexlify(hmac_hmac.finalize())
     return bytes_eq(signature, request.META['HTTP_X_HUB_SIGNATURE'])
