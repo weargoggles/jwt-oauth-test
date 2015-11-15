@@ -2,5 +2,4 @@ Django<1.9
 waitress
 django-environ
 pyjwt[crypto]
-pycrypto
 cryptography
