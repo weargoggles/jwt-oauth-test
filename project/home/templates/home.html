@@ -7,3 +7,7 @@ Home
     <li>You have no repositories. Maybe you aren't logged in.</li>
     {% endfor %}
 </ul>
+
+{% if error %}
+    <p>{{ error }}</p>
+{% endif %}

@@ -10,8 +10,11 @@ def home(request):
     })
     if repos_response.status_code == 200:
         repos = repos_response.json()
+        error = ''
     else:
         repos = []
+        error = repos_response.content
     return render_to_response("home.html", {
         'repos': repos,
+        'error': error,
     }, RequestContext(request))
