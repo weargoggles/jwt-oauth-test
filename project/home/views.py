@@ -4,7 +4,7 @@ from django.template import RequestContext
 
 
 def home(request):
-    repos_response = requests.get('https://api.github.com/v3/user/repos', headers={
+    repos_response = requests.get('https://api.github.com/user/repos', headers={
         'Authorization': 'token %s' % request.session['github']['access_token'],
         'Accept': 'application/json',
     })
