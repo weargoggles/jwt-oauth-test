@@ -68,7 +68,7 @@ class SessionStore(SessionBase):
         session key.
         """
         session_cache = getattr(self, '_session_cache', {})
-        return jwt.encode(self.session_key, settings.JWT_PRIVATE_KEY,
+        return jwt.encode(session_cache, settings.JWT_PRIVATE_KEY,
                           algorithm='RS512')
 
     @classmethod
