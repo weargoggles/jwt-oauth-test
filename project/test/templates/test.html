@@ -1,0 +1,18 @@
+<h1>Hi, tester</h1>
+
+<p>Your JWT data:</p>
+
+<ul>
+{% for key, value in request.session.items %}
+    <li>{{ key }}: {{ value }}</li>
+{% endfor %}
+</ul>
+
+<p>Update the posted data:</p>
+<form>
+    <label>
+        Posted string:
+        <input type="text" name="posted" value="{{ request.session.posted }}">
+    </label>
+    <button type="submit">Update</button>
+</form>
