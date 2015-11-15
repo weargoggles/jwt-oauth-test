@@ -3,3 +3,4 @@ waitress
 django-environ
 pyjwt[crypto]
 pycrypto
+cryptography
