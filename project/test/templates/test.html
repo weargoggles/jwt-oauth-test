@@ -10,6 +10,7 @@
 
 <p>Update the posted data:</p>
 <form method="post">
+    {% csrf_token %}
     <label>
         Posted string:
         <input type="text" name="posted" value="{{ request.session.posted }}">
