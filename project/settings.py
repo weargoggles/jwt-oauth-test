@@ -111,3 +111,8 @@ SESSION_ENGINE = 'project.sessions'
 # RSA keys for JWT signing and validation
 JWT_PUBLIC_KEY = Crypto.PublicKey.RSA.importKey(env('JWT_PUBLIC_KEY'))
 JWT_PRIVATE_KEY = Crypto.PublicKey.RSA.importKey(env('JWT_PRIVATE_KEY'))
+
+EMAIL_HOST = env('POSTMARK_SMTP_SERVER')
+EMAIL_HOST_USER = env('POSTMARK_API_TOKEN')
+EMAIL_HOST_PASSWORD = env('POSTMARK_API_TOKEN')
+EMAIL_USE_TLS = True
