@@ -1,1 +1,9 @@
 Home
+
+<ul>
+    {% for repo in repos %}
+    <li>{{ repo.full_name }}</li>
+    {% empty %}
+    <li>You have no repositories. Maybe you aren't logged in.</li>
+    {% endfor %}
+</ul>
