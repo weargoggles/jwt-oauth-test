@@ -11,12 +11,17 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import Crypto
+
 import os
 import environ
 
 env = environ.Env(
     DEBUG=(bool, False),
     ALLOWED_HOSTS=(list, []),
+    JWT_PUBLIC_KEY=str,
+    JWT_PRIVATE_KEY=str,
+    SECRET_KEY=str,
 )
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -46,11 +51,11 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -103,3 +108,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SESSION_ENGINE = 'project.sessions'
+
+# RSA keys for JWT signing and validation
+JWT_PUBLIC_KEY = Crypto.PublicKey.RSA.importKey(env('JWT_PUBLIC_KEY'))
+JWT_PRIVATE_KEY = Crypto.PublicKey.RSA.importKey(env('JWT_PRIVATE_KEY'))

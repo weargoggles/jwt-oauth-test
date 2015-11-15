@@ -1,3 +1,5 @@
 Django<1.9
 waitress
 django-environ
+pyjwt>1.0.1
+pycrypto
