@@ -6,6 +6,7 @@ import cryptography.hazmat.backends
 from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
 crypto_backend = cryptography.hazmat.backends.default_backend()
 
@@ -17,6 +18,7 @@ def verify_signature(request, request_body):
     return bytes_eq(signature, request.META['HTTP_X_HUB_SIGNATURE'])
 
 
+@csrf_exempt
 def receive_hook(request):
     verify_signature(request, request.body)
     send_mail('Hook from github', request.body, settings.SERVER_EMAIL,
