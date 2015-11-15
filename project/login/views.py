@@ -50,5 +50,8 @@ def login_callback(request):
         'Accept': 'application/json',
     })
     assert token_response.status_code == 200, token_response.content
-    request.session['github'].update(token_response.json())
+    request.session['github'] = {
+        'access_token': token_response.json()['access_token'],
+        'scope': token_response.json()['scope'],
+    }
     return redirect('home')
