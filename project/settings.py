@@ -47,6 +47,8 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.sessions',
     'project.test',
+    'project.login',
+    'project.home',
 )
 
 MIDDLEWARE_CLASSES = (
