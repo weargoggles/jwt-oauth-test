@@ -46,6 +46,7 @@ ADMINS = map(lambda x: (x, x), env('ADMINS'))
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.sessions',
+    'project.test',
 )
 
 MIDDLEWARE_CLASSES = (
