@@ -3,7 +3,7 @@ from django.contrib.sessions.backends.base import SessionBase
 import jwt
 
 
-class JWTSessionStore(SessionBase):
+class SessionStore(SessionBase):
 
     def load(self):
         """
