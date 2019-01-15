@@ -1,4 +1,4 @@
-Django<1.9
+Django
 waitress
 django-environ
 pyjwt[crypto]
